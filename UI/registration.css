@@ -1,0 +1,90 @@
+body {
+    background-color: teal;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+
+  h2 {
+    text-align:center; 
+    /* text-decoration: underline;  */
+    margin-bottom: 20px;
+  }
+
+  .container {
+    background-color: #f0f0f0;
+    color: black;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 30px 40px;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  label::after {
+    content: " *";
+    color: red;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  #registerBtn {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #registerBtn:hover {
+    background-color: #3a5fb4; /* cobalt shade */
+  }
+
+  #resetBtn {
+    background-color: lightgray;
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #error {
+    margin-bottom: 10px;
+    display: none;
+  }
+
+  #acknowledgment {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ffe9;
+    border: 1px solid green;
+    border-radius: 10px;
+  }

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Airline Management System - Home</title>
+    <link rel="stylesheet" href="homefinal.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="nav-left">
+        <a href="#">Home</a>
+
+        <div class="dropdown">
+          <a href="#" id="profile-btn">My Profile ▼</a>
+          <div
+            class="dropdown-content"
+            id="profileDropdown"
+            style="display: none"
+          >
+            <a href="#">View Profile</a>
+            <a href="#">Edit Profile</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="#" id="trips-btn">My Trips ▼</a>
+          <div
+            class="dropdown-content"
+            id="tripsDropdown"
+            style="display: none"
+          >
+            <a href="#">Upcoming Trips</a>
+            <a href="#">Cancelled Trips</a>
+            <a href="#">Completed Trips</a>
+          </div>
+        </div>
+
+        <a href="#">Logout</a>
+      </div>
+
+      <div class="nav-right">Welcome Passenger !!!</div>
+    </div>
+
+    <!-- Dropdown space (optional if you want a separate colored area below navbar) -->
+    <div class="dropdown-space" id="dropdown-space">
+      <!-- style="background-color: teal; height: 100px" -->
+      <!-- Dropdowns will visually overlap here if you want -->
+    </div>
+
+    <!-- Welcome Heading -->
+    <div class="welcome-heading">Welcome to Easy Go - AMS</div>
+
+    <!-- Search Form -->
+    <div class="search-container">
+      <form class="search-form">
+        <label>
+          Origin
+          <select required>
+            <option value="">Select Origin</option>
+            <option>New York</option>
+            <option>London</option>
+            <option>Paris</option>
+          </select>
+        </label>
+
+        <label>
+          Destination
+          <select required>
+            <option value="">Select Destination</option>
+            <option>Tokyo</option>
+            <option>Berlin</option>
+            <option>Dubai</option>
+          </select>
+        </label>
+
+        <label>
+          Departure Date
+          <input type="date" required />
+        </label>
+
+        <label>
+          No. of Travellers
+          <input type="number" min="1" max="10" required />
+        </label>
+
+        <label>
+          Class
+          <select required>
+            <option value="">Select Class</option>
+            <option>Economy</option>
+            <option>Executive</option>
+            <option>Business</option>
+          </select>
+        </label>
+
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="homefinal.js"></script>
+  </body>
+</html>
