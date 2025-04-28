@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EasyGo - AMS Login</title>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="stylelogin.css" />
-  
-</head>
-<body>
-  <div class="login-container">
-    <form class="login-form" onsubmit="validateLogin(event)">
-      <h2>EasyGo - AMS</h2>
-      <div id="error-message" class="error-message"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyGo - AMS Login</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylelogin.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <form class="login-form" onsubmit="validateLogin(event)">
+        <h2>EasyGo - AMS</h2>
+        <div id="error-message" class="error-message"></div>
 
-      <label for="userId">User Id :</label>
-      <div class="input-box">
-        <i class='bx bxs-user'></i>
-        <input type="text" id="userId" placeholder="Enter User ID" maxlength="5" />
-      </div>
+        <label for="userId">User Id :</label>
+        <div class="input-box">
+          <i class="bx bxs-user"></i>
+          <input
+            type="text"
+            id="userId"
+            placeholder="Enter User ID"
+            maxlength="5"
+          />
+        </div>
 
-      <label for="password">Password :</label>
-      <div class="input-box">
-        <i class='bx bxs-lock'></i>
-        <input type="password" id="password" placeholder="Enter Password" maxlength="30" />
-      </div>
+        <label for="password">Password :</label>
+        <div class="input-box">
+          <i class="bx bxs-lock"></i>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            maxlength="30"
+          />
+        </div>
 
-      <button type="submit" class="login-btn">Login</button>
+        <button type="submit" class="login-btn">Login</button>
 
-      <p class="register-link">
-        New User? <a href="registration.html"><strong>Register Yourself</strong></a>
-      </p>
-    </form>
-  </div>
-  <script src="loginscript.js"></script>
-</body>
+        <p class="register-link">
+          New User?
+          <a href="registration.html"><strong>Register Yourself</strong></a>
+        </p>
+      </form>
+    </div>
+    <script src="loginscript.js"></script>
+  </body>
 </html>
