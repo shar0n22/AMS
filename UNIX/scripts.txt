@@ -1,0 +1,81 @@
+#!/bin/bash
+# Combined Script: easygo_ams.sh
+# Author: Your Name
+# Description: EasyGo Airline Management CLI
+
+PASSENGER_FILE="passenger_registration.txt"
+FLIGHT_FILE="flight_data.txt"
+
+# Function to register passenger
+register_passenger() {
+    echo "---- Passenger Registration ----"
+    read -p "Enter First Name: " firstname
+    read -p "Enter Last Name: " lastname
+    read -p "Enter DOB (DDMMYYYY): " dob
+    read -p "Enter Email ID: " email
+    read -p "Enter Contact Number: " contact
+
+    echo "${firstname}|${lastname}|${dob}|${email}|${contact}" >> "$PASSENGER_FILE"
+    echo "Passenger Registered Successfully!"
+}
+
+# Function to create flight file
+create_flight_file() {
+    echo "---- Creating Flight Data ----"
+    cat > "$FLIGHT_FILE" << EOL
+SpiceJet757|CHN|HYD|3Jan|10000
+AkasaAir123|DEL|BGL|3Jan|9000
+Indigo667|DEL|HYD|3Jan|13000
+AIRIndia667|DEL|HYD|3Jan|16000
+EOL
+    echo "Flight File Created Successfully!"
+}
+
+# Function to search flights
+search_flights() {
+    echo "---- Search Flights ----"
+    read -p "Enter Origin: " from
+    read -p "Enter Destination: " to
+    read -p "Enter Travel Date (e.g., 3Jan): " traveldate
+
+    echo "Searching Flights..."
+    grep "${from}|${to}|${traveldate}" "$FLIGHT_FILE" || echo "No Flights Found!"
+}
+
+# Function to sort flights by price
+sort_flights_by_price() {
+    echo "---- Sort Flights by Price (High to Low) ----"
+    sort -t '|' -k5,5nr "$FLIGHT_FILE"
+}
+
+# Function to fetch flights by destination
+fetch_flights_by_destination() {
+    echo "---- Fetch Flights by Destination ----"
+    read -p "Enter Destination (e.g., HYD): " destination
+
+    awk -F"|" -v dest="$destination" '$3 == dest' "$FLIGHT_FILE" || echo "No Flights Found!"
+}
+
+# Main menu
+while true; do
+    echo ""
+    echo "===== EasyGo APS Menu ====="
+    echo "1. Register Passenger"
+    echo "2. Create Flight File (Test Data)"
+    echo "3. Search Flights"
+    echo "4. Sort Flights by Price"
+    echo "5. Fetch Flights by Destination"
+    echo "6. Exit"
+    echo "============================"
+    read -p "Enter your choice [1-6]: " choice
+
+    case $choice in
+        1) register_passenger ;;
+        2) create_flight_file ;;
+        3) search_flights ;;
+        4) sort_flights_by_price ;;
+        5) fetch_flights_by_destination ;;
+        6) echo "Exiting... Thank you for using EasyGo AMS!" ; exit 0 ;;
+        *) echo "Invalid choice. Please try again." ;;
+    esac
+done

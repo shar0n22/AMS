@@ -50,6 +50,7 @@ function validateLogin(event) {
   if (!foundUser) {
     errorDiv.textContent = "Both ID/password not valid";
   } else {
-    window.location.href = "homefinal.html";
+    localStorage.setItem("currentUserId", userId);
+    window.location.href = "homenew.html";
   }
 }

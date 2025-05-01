@@ -2,111 +2,90 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Passenger Home - Easy Go AMS</title>
-    <link rel="stylesheet" href="home.css" />
-    <!-- External CSS -->
+    <title>Airline Management System - Home</title>
+    <link rel="stylesheet" href="homefinal.css" />
+    <link rel="stylesheet" href="profile.css" />
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <!-- <nav class="navbar">
-      <div class="nav-left">
-        <a href="#" class="nav-item">Home</a>
-        <div class="nav-item dropdown">
-          My Profile
-          <div class="dropdown-content">
-            <a href="#">View/Edit Profile</a>
-          </div>
-        </div>
-        <div class="nav-item dropdown">
-          My Trips
-          <div class="dropdown-content">
-            <a href="#">Upcoming</a>
-            <a href="#">Cancelled</a>
-            <a href="#">Completed</a>
-          </div>
-        </div>
-        <a href="#" class="nav-item">Logout</a>
-      </div>
-      <div class="nav-right">
-        Welcome <span id="passengerName">Passenger</span> !!!
-      </div>
-    </nav> -->
-
-    <!-- NAVIGATION BAR -->
+    <!-- Navbar -->
     <div class="navbar">
       <div class="nav-left">
-        <a href="#">Home</a>
+        <a href="#" id="home-link">Home</a>
+
         <div class="dropdown">
-          <button class="dropbtn">My Profile ▼</button>
-          <div class="dropdown-content">
-            <a href="#">View Profile</a>
-            <a href="#">Edit Profile</a>
+          <a href="#" id="profile-btn">My Profile ▼</a>
+          <div
+            class="dropdown-content"
+            id="profileDropdown"
+            style="display: none"
+          >
+            <a href="#" id="view-profile-link">View Profile</a>
+            <a href="#" id="edit-profile-link">Edit Profile</a>
           </div>
         </div>
+
         <div class="dropdown">
-          <button class="dropbtn">My Trips ▼</button>
-          <div class="dropdown-content">
-            <a href="#">Upcoming</a>
-            <a href="#">Cancelled</a>
-            <a href="#">Completed</a>
+          <a href="#" id="trips-btn">My Trips ▼</a>
+          <div
+            class="dropdown-content"
+            id="tripsDropdown"
+            style="display: none"
+          >
+            <a href="#">Upcoming Trips</a>
+            <a href="#">Cancelled Trips</a>
+            <a href="#">Completed Trips</a>
           </div>
         </div>
+
+        <a href="login.html">Logout</a>
       </div>
-      <div class="nav-right">
-        <span>Welcome Passenger !!!</span>
-        <a href="#">Logout</a>
-      </div>
+
+      <div class="nav-right">Welcome Passenger !!!</div>
     </div>
 
-    <!-- WELCOME BANNER -->
-    <div class="welcome-banner">
-      <h1>Welcome to Easy Go - AMS</h1>
-    </div>
+    <!-- Dropdown space -->
+    <div class="dropdown-space" id="dropdown-space"></div>
 
-    <!-- SEARCH FORM will go here next -->
-
-    <!-- Page Title -->
-    <!-- <header class="page-title">
-      <h1>Welcome to Easy Go - AMS</h1>
-    </header> -->
+    <!-- Welcome Heading -->
+    <div class="welcome-heading">Welcome to Easy Go - AMS</div>
 
     <!-- Search Form -->
-    <!-- <section class="search-form">
-      <form>
-        <label
-          >From
-          <select>
-            <option>Chennai</option>
-            <option>Bangalore</option>
-            <option>Delhi</option>
-            <option>Mumbai</option>
+    <div class="search-container" id="search-container">
+      <form class="search-form">
+        <label>
+          Origin
+          <select required>
+            <option value="">Select Origin</option>
+            <option>New York</option>
+            <option>London</option>
+            <option>Paris</option>
           </select>
         </label>
 
-        <label
-          >To
-          <select>
-            <option>Bangalore</option>
-            <option>Chennai</option>
-            <option>Delhi</option>
-            <option>Mumbai</option>
+        <label>
+          Destination
+          <select required>
+            <option value="">Select Destination</option>
+            <option>Tokyo</option>
+            <option>Berlin</option>
+            <option>Dubai</option>
           </select>
         </label>
 
-        <label
-          >Departure Date
-          <input type="date" />
+        <label>
+          Departure Date
+          <input type="date" required />
         </label>
 
-        <label
-          >No of Travellers
-          <input type="number" min="1" />
+        <label>
+          No. of Travellers
+          <input type="number" min="1" max="10" required />
         </label>
 
-        <label
-          >Class
-          <select>
+        <label>
+          Class
+          <select required>
+            <option value="">Select Class</option>
             <option>Economy</option>
             <option>Executive</option>
             <option>Business</option>
@@ -115,49 +94,89 @@
 
         <button type="submit">Search</button>
       </form>
-    </section> -->
+    </div>
 
-    <div class="search-container">
-      <form class="search-form">
-        <label
-          >From
-          <select>
-            <option>Chennai</option>
-            <option>Bangalore</option>
-            <!-- Add more cities -->
-          </select>
-        </label>
+    <!-- View Profile Container -->
+    <div class="profile-container" id="profile-view-container">
+      <h2>My Profile</h2>
+      <div class="profile-view-details">
+        <div class="profile-label">User ID:</div>
+        <div class="profile-value" id="view-userId"></div>
 
-        <label
-          >To
-          <select>
-            <option>Bangalore</option>
-            <option>Chennai</option>
-            <!-- Add more cities -->
-          </select>
-        </label>
+        <div class="profile-label">First Name:</div>
+        <div class="profile-value" id="view-firstName"></div>
 
-        <label
-          >Departure Date
-          <input type="date" />
-        </label>
+        <div class="profile-label">Last Name:</div>
+        <div class="profile-value" id="view-lastName"></div>
 
-        <label
-          >No of Travellers
-          <input type="number" min="1" />
-        </label>
+        <div class="profile-label">Email:</div>
+        <div class="profile-value" id="view-email"></div>
 
-        <label
-          >Class
-          <select>
-            <option>Economy</option>
-            <option>Business</option>
-            <option>First Class</option>
-          </select>
-        </label>
+        <div class="profile-label">Date of Birth:</div>
+        <div class="profile-value" id="view-dob"></div>
 
-        <button type="submit">Search</button>
+        <div class="profile-label">Address:</div>
+        <div class="profile-value" id="view-address"></div>
+
+        <div class="profile-label">Contact:</div>
+        <div class="profile-value" id="view-contact"></div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="profile-button" id="edit-from-view">Edit Profile</button>
+        <button class="profile-button" id="back-to-home-from-view">
+          Back to Home
+        </button>
+      </div>
+    </div>
+
+    <!-- Edit Profile Container -->
+    <div class="profile-container" id="profile-edit-container">
+      <h2>Edit Profile</h2>
+      <div class="edit-error" id="edit-error"></div>
+
+      <form class="profile-edit-form" id="profile-edit-form">
+        <div class="profile-edit-group">
+          <label for="edit-firstName">First Name</label>
+          <input type="text" id="edit-firstName" maxlength="50" required />
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-lastName">Last Name</label>
+          <input type="text" id="edit-lastName" maxlength="50" required />
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-email">Email</label>
+          <input type="email" id="edit-email" required />
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-dob">Date of Birth</label>
+          <input type="date" id="edit-dob" required />
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-address">Address</label>
+          <textarea id="edit-address" maxlength="100" required></textarea>
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-contact">Contact</label>
+          <input type="text" id="edit-contact" maxlength="10" required />
+        </div>
+
+        <div class="edit-buttons">
+          <button type="submit" class="profile-button">Save Changes</button>
+          <button type="button" class="profile-button" id="cancel-edit">
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
+
+    <!-- JavaScript -->
+    <script src="home.js"></script>
+    <script src="profile.js"></script>
   </body>
 </html>

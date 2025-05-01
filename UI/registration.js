@@ -74,6 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
     users.push({
       userId: passengerId.toString(), // Passenger ID (as string)
       password: password, // Generated password
+      firstName: firstName,
+      lastName: document.getElementById("lastName").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      dob: document.getElementById("dob").value,
+      address: document.getElementById("address").value.trim(),
+      contact: document.getElementById("contact").value.trim(),
     });
 
     localStorage.setItem("users", JSON.stringify(users));

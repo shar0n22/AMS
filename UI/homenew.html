@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Airline Management System - Home</title>
+    <link rel="stylesheet" href="homefinal.css" />
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="trips.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="nav-left">
+        <a href="#" id="home-link">Home</a>
+
+        <div class="dropdown">
+          <a href="#" id="profile-btn">My Profile ▼</a>
+          <div
+            class="dropdown-content"
+            id="profileDropdown"
+            style="display: none"
+          >
+            <a href="#" id="view-profile-link">View Profile</a>
+            <a href="#" id="edit-profile-link">Edit Profile</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="#" id="trips-btn">My Trips ▼</a>
+          <div
+            class="dropdown-content"
+            id="tripsDropdown"
+            style="display: none"
+          >
+            <a href="#" id="upcoming-trips-link">Upcoming Trips</a>
+            <a href="#" id="cancelled-trips-link">Cancelled Trips</a>
+            <a href="#" id="completed-trips-link">Completed Trips</a>
+          </div>
+        </div>
+
+        <a href="login.html">Logout</a>
+      </div>
+
+      <div class="nav-right">Welcome Passenger !!!</div>
+    </div>
+
+    <!-- Dropdown space -->
+    <div class="dropdown-space" id="dropdown-space"></div>
+
+    <!-- Welcome Heading -->
+    <div class="welcome-heading">Welcome to Easy Go - AMS</div>
+
+    <!-- Search Form -->
+    <div class="search-container" id="search-container">
+      <form class="search-form">
+        <label>
+          Origin
+          <select required>
+            <option value="">Select Origin</option>
+            <option>New York</option>
+            <option>London</option>
+            <option>Paris</option>
+          </select>
+        </label>
+
+        <label>
+          Destination
+          <select required>
+            <option value="">Select Destination</option>
+            <option>Tokyo</option>
+            <option>Berlin</option>
+            <option>Dubai</option>
+          </select>
+        </label>
+
+        <label>
+          Departure Date
+          <input type="date" required />
+        </label>
+
+        <label>
+          No. of Travellers
+          <input type="number" min="1" max="10" required />
+        </label>
+
+        <label>
+          Class
+          <select required>
+            <option value="">Select Class</option>
+            <option>Economy</option>
+            <option>Executive</option>
+            <option>Business</option>
+          </select>
+        </label>
+
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- View Profile Container -->
+    <div class="profile-container" id="profile-view-container">
+      <h2>My Profile</h2>
+      <div class="profile-view-details">
+        <div class="profile-label">User ID:</div>
+        <div class="profile-value" id="view-userId"></div>
+
+        <div class="profile-label">First Name:</div>
+        <div class="profile-value" id="view-firstName"></div>
+
+        <div class="profile-label">Last Name:</div>
+        <div class="profile-value" id="view-lastName"></div>
+
+        <div class="profile-label">Email:</div>
+        <div class="profile-value" id="view-email"></div>
+
+        <div class="profile-label">Date of Birth:</div>
+        <div class="profile-value" id="view-dob"></div>
+
+        <div class="profile-label">Address:</div>
+        <div class="profile-value" id="view-address"></div>
+
+        <div class="profile-label">Contact:</div>
+        <div class="profile-value" id="view-contact"></div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="profile-button" id="edit-from-view">Edit Profile</button>
+        <button class="profile-button" id="back-to-home-from-view">
+          Back to Home
+        </button>
+      </div>
+    </div>
+
+    <!-- Edit Profile Container -->
+    <div class="profile-container" id="profile-edit-container">
+      <h2>Edit Profile</h2>
+      <div class="edit-error" id="edit-error"></div>
+
+      <form class="profile-edit-form" id="profile-edit-form">
+        <div class="profile-edit-group">
+          <label for="edit-firstName">First Name</label>
+          <input type="text" id="edit-firstName" maxlength="50" required />
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-lastName">Last Name</label>
+          <input type="text" id="edit-lastName" maxlength="50" required />
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-email">Email</label>
+          <input type="email" id="edit-email" required />
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-dob">Date of Birth</label>
+          <input type="date" id="edit-dob" required />
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-address">Address</label>
+          <textarea id="edit-address" maxlength="100" required></textarea>
+        </div>
+
+        <div class="profile-edit-group">
+          <label for="edit-contact">Contact</label>
+          <input type="text" id="edit-contact" maxlength="10" required />
+        </div>
+
+        <div class="edit-buttons">
+          <button type="submit" class="profile-button">Save Changes</button>
+          <button type="button" class="profile-button" id="cancel-edit">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Upcoming Trips Container -->
+    <div class="trips-container" id="upcoming-trips-container">
+      <h2>Upcoming Trips</h2>
+      <div class="trips-table-container">
+        <table class="trips-table">
+          <thead>
+            <tr>
+              <th>Origin</th>
+              <th>Destination</th>
+              <th>Departure Date</th>
+              <th>No. of Travellers</th>
+              <th>Class</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>New York</td>
+              <td>London</td>
+              <td>15 May 2025</td>
+              <td>2</td>
+              <td>Business</td>
+              <td><button class="action-btn view-btn">View</button></td>
+            </tr>
+            <tr>
+              <td>Paris</td>
+              <td>Dubai</td>
+              <td>22 June 2025</td>
+              <td>1</td>
+              <td>Economy</td>
+              <td><button class="action-btn view-btn">View</button></td>
+            </tr>
+            <tr>
+              <td>London</td>
+              <td>Tokyo</td>
+              <td>10 July 2025</td>
+              <td>3</td>
+              <td>Executive</td>
+              <td><button class="action-btn view-btn">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="back-button-container">
+        <button class="profile-button back-to-home-btn">Back to Home</button>
+      </div>
+    </div>
+
+    <!-- Cancelled Trips Container -->
+    <div class="trips-container" id="cancelled-trips-container">
+      <h2>Cancelled Trips</h2>
+      <div class="trips-table-container">
+        <table class="trips-table">
+          <thead>
+            <tr>
+              <th>Origin</th>
+              <th>Destination</th>
+              <th>Departure Date</th>
+              <th>No. of Travellers</th>
+              <th>Class</th>
+              <th>Cancellation Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Berlin</td>
+              <td>New York</td>
+              <td>05 Apr 2025</td>
+              <td>2</td>
+              <td>Economy</td>
+              <td>15 Mar 2025</td>
+            </tr>
+            <tr>
+              <td>Dubai</td>
+              <td>Paris</td>
+              <td>12 Mar 2025</td>
+              <td>1</td>
+              <td>Business</td>
+              <td>01 Mar 2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="back-button-container">
+        <button class="profile-button back-to-home-btn">Back to Home</button>
+      </div>
+    </div>
+
+    <!-- Completed Trips Container -->
+    <div class="trips-container" id="completed-trips-container">
+      <h2>Completed Trips</h2>
+      <div class="trips-table-container">
+        <table class="trips-table">
+          <thead>
+            <tr>
+              <th>Origin</th>
+              <th>Destination</th>
+              <th>Departure Date</th>
+              <th>Return Date</th>
+              <th>No. of Travellers</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>New York</td>
+              <td>Tokyo</td>
+              <td>15 Jan 2025</td>
+              <td>22 Jan 2025</td>
+              <td>2</td>
+              <td>Business</td>
+            </tr>
+            <tr>
+              <td>London</td>
+              <td>Dubai</td>
+              <td>03 Feb 2025</td>
+              <td>10 Feb 2025</td>
+              <td>1</td>
+              <td>Economy</td>
+            </tr>
+            <tr>
+              <td>Paris</td>
+              <td>Berlin</td>
+              <td>20 Mar 2025</td>
+              <td>25 Mar 2025</td>
+              <td>4</td>
+              <td>Executive</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="back-button-container">
+        <button class="profile-button back-to-home-btn">Back to Home</button>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="home.js"></script>
+    <script src="profile.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get containers
+        const searchContainer = document.getElementById("search-container");
+        const upcomingTripsContainer = document.getElementById(
+          "upcoming-trips-container"
+        );
+        const cancelledTripsContainer = document.getElementById(
+          "cancelled-trips-container"
+        );
+        const completedTripsContainer = document.getElementById(
+          "completed-trips-container"
+        );
+
+        // Get dropdown links
+        const tripLinks = document.querySelectorAll("#tripsDropdown a");
+
+        // Get back buttons
+        const backButtons = document.querySelectorAll(".back-to-home-btn");
+
+        // Get home link in navbar
+        const homeLink = document.getElementById("home-link");
+
+        // Function to show search form and hide all tables
+        function showHomeView() {
+          searchContainer.style.display = "block";
+          upcomingTripsContainer.style.display = "none";
+          cancelledTripsContainer.style.display = "none";
+          completedTripsContainer.style.display = "none";
+        }
+
+        // Setup upcoming trips link
+        tripLinks[0].addEventListener("click", function (e) {
+          e.preventDefault();
+          searchContainer.style.display = "none";
+          upcomingTripsContainer.style.display = "block";
+          cancelledTripsContainer.style.display = "none";
+          completedTripsContainer.style.display = "none";
+        });
+
+        // Setup cancelled trips link
+        tripLinks[1].addEventListener("click", function (e) {
+          e.preventDefault();
+          searchContainer.style.display = "none";
+          upcomingTripsContainer.style.display = "none";
+          cancelledTripsContainer.style.display = "block";
+          completedTripsContainer.style.display = "none";
+        });
+
+        // Setup completed trips link
+        tripLinks[2].addEventListener("click", function (e) {
+          e.preventDefault();
+          searchContainer.style.display = "none";
+          upcomingTripsContainer.style.display = "none";
+          cancelledTripsContainer.style.display = "none";
+          completedTripsContainer.style.display = "block";
+        });
+
+        // Setup back buttons
+        backButtons.forEach(function (button) {
+          button.addEventListener("click", showHomeView);
+        });
+
+        // Setup home link in navbar
+        homeLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          showHomeView();
+        });
+      });
+    </script>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get containers
+        const searchContainer = document.getElementById("search-container");
+        const upcomingTripsContainer = document.getElementById(
+          "upcoming-trips-container"
+        );
+        const cancelledTripsContainer = document.getElementById(
+          "cancelled-trips-container"
+        );
+        const completedTripsContainer = document.getElementById(
+          "completed-trips-container"
+        );
+
+        // Get dropdown links
+        const tripLinks = document.querySelectorAll("#tripsDropdown a");
+
+        // Get back buttons
+        const backButtons = document.querySelectorAll(".back-to-home-btn");
+
+        // Setup upcoming trips link
+        tripLinks[0].addEventListener("click", function (e) {
+          e.preventDefault();
+          searchContainer.style.display = "none";
+          upcomingTripsContainer.style.display = "block";
+          cancelledTripsContainer.style.display = "none";
+          completedTripsContainer.style.display = "none";
+        });
+
+        // Setup cancelled trips link
+        tripLinks[1].addEventListener("click", function (e) {
+          e.preventDefault();
+          searchContainer.style.display = "none";
+          upcomingTripsContainer.style.display = "none";
+          cancelledTripsContainer.style.display = "block";
+          completedTripsContainer.style.display = "none";
+        });
+
+        // Setup completed trips link
+        tripLinks[2].addEventListener("click", function (e) {
+          e.preventDefault();
+          searchContainer.style.display = "none";
+          upcomingTripsContainer.style.display = "none";
+          cancelledTripsContainer.style.display = "none";
+          completedTripsContainer.style.display = "block";
+        });
+
+        // Setup back buttons
+        backButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            searchContainer.style.display = "block";
+            upcomingTripsContainer.style.display = "none";
+            cancelledTripsContainer.style.display = "none";
+            completedTripsContainer.style.display = "none";
+          });
+        });
+      });
+    </script> -->
+  </body>
+</html>

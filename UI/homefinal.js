@@ -136,3 +136,16 @@ window.addEventListener("click", function () {
     drop.style.display = "none";
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const currentUserId = localStorage.getItem("currentUserId");
+
+  const currentUser = users.find((user) => user.userId === currentUserId);
+
+  if (currentUser) {
+    document.querySelector(
+      ".nav-right"
+    ).textContent = `Welcome ${currentUser.firstName} !!!`;
+  }
+});
